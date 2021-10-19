@@ -1,9 +1,14 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { workTimer, breakTimer, timerSet, timerStatus, userStatus, loop } from '../FroggyDoro/reducers/timer';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    workTime: workTimer,
+    breakTime: breakTimer,
+    timerDefaults: timerSet,
+    timerStatus: timerStatus,
+    userStatus: userStatus,
+    loop
   },
 });
 
