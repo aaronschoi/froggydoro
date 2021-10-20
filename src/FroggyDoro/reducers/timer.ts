@@ -74,7 +74,7 @@ export interface ITimerSet {
     workTime: ITimer
 }
 
-const initialTimerSet : ITimerSet = {
+export const initialTimerSet : ITimerSet = {
     breakTime: {...initialState},
     workTime: {...initialState}
 }
