@@ -1,0 +1,27 @@
+.header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-link {
+    text-decoration: none;
+    color: white;
+    text-shadow: 3px 3px 0px black;
+    text-align: center;
+}
+
+.header-link-main {
+    font-size: 5em;
+}
+
+.header-link-sub {
+    font-size: 3em;
+}
+
+.header-link:hover {
+    color: white;
+    text-shadow: 3px 3px 0px black , 6px 6px 0px var(--yellow);
+}

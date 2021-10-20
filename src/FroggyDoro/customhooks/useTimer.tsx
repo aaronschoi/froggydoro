@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { useAppSelector } from "../../app/hooks";
 import { useCommands } from "./useCommands";
+import { useTitle } from "./useTitle";
 
 export const useTimer = (delay: number = 1000) => {
   const { userStatus, timerStatus, workTime, breakTime, timerDefaults, loop } = useAppSelector((store) => store);
   const { decBreak, decWork, takeABreak, work, pause, resetBreak, resetWork } = useCommands();
+  const title = useTitle;
 
    useEffect(() => {
        if(userStatus === "WORK"){
@@ -12,6 +14,7 @@ export const useTimer = (delay: number = 1000) => {
            if(!hours && !minutes && !seconds) {
                 takeABreak();
                 resetWork(timerDefaults.workTime)
+                title("Break Time")
            }
        }
        else {
@@ -21,6 +24,10 @@ export const useTimer = (delay: number = 1000) => {
                resetBreak(timerDefaults.breakTime)
                if(!loop){
                pause();
+               title("FroggyDoro")
+               }
+               else{
+                 title("Work Time")
                }
            }
        }

@@ -2,7 +2,7 @@ import { ITimer } from "../reducers/timer";
 import { useCommands } from "./useCommands";
 
 export const useTimersInLocalStorage = () => {
-  const { setDefaults } = useCommands();
+  const { setDefaults, resetBreak, resetWork } = useCommands();
 
   const setLocalStorage = () => {
     localStorage.setItem("timePresetsExist", "0");
@@ -22,7 +22,9 @@ export const useTimersInLocalStorage = () => {
     localStorage.setItem("workHours", workObj.hours.toString());
     localStorage.setItem("workMinutes", workObj.minutes.toString());
     localStorage.setItem("workSeconds", workObj.seconds.toString());
-    setDefaults({workTime: {...workObj}, breakTime: {...breakObj}})
+    setDefaults({workTime: {...workObj}, breakTime: {...breakObj}});
+    resetWork(workObj);
+    resetBreak(breakObj);
   };
 
   return {

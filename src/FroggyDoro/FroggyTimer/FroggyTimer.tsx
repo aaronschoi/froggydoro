@@ -2,12 +2,16 @@ import { MouseEventHandler } from "react";
 import { useAppSelector } from "../../app/hooks";
 import { useCommands } from "../customhooks/useCommands";
 import { useTimer } from "../customhooks/useTimer";
+import { useTitle } from "../customhooks/useTitle";
+import Lilypad from "../Lilypad/Lilypad";
 import Break from "./Timers/Break";
 import Work from "./Timers/Work";
 
 export default function FroggyTimer() {
   const { userStatus, timerStatus, loop } = useAppSelector((store) => store);
   const { start, pause, yesLoop, noLoop } = useCommands();
+  const title = useTitle;
+  const userState = userStatus === "WORK" ? "Work Time" : "Break Time"
 
   useTimer();
 
@@ -17,6 +21,7 @@ export default function FroggyTimer() {
       pause();
     } else {
       start();
+      title(userState)
     }
   };
 
@@ -31,15 +36,11 @@ export default function FroggyTimer() {
 
   return (
     <>
-      <div>{userStatus === "WORK" ? "Work Time" : "Break Time"}</div>
+      <div>{userState}</div>
       <div>{userStatus === "WORK" ? <Work /> : <Break />}</div>
-      <div>
-        <button onClick={timerToggleHandler}>
-          {timerStatus ? "pause" : "start"}
-        </button>
-        <button onClick={loopToggleHandler}>
-          {loop ? "Stop Looping" : "Start Looping"}
-        </button>
+      <div className="froggydoro-buttonbox">
+        <Lilypad text={timerStatus ? "pause" : "start"} clickEvent={timerToggleHandler} />
+        <Lilypad text={loop ? "no loop" : "loop"} clickEvent={loopToggleHandler} />
       </div>
     </>
   );

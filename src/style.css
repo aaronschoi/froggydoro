@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
+@import "./css/reset/reset.css";
+@import "./css/header/header.css";
+@import "./css/froggydoro/froggydoro.css";
+
+:root {
+  --yellow: #DDB771;
+  --green-one: #6BBF59;
+  --green-two: #08A045;
+  --green-three: #0B6E4F;
+  --green-four: #073B3A;
+  --main-font: 'Love Ya Like A Sister', cursive;
+  --font-size: 3.2vw;
+}
+
+.App {
+  font-family: var(--main-font);
+  background-color: var(--green-three);
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 40px;
+  font-size: var(--font-size);
+}
+
+.App::-webkit-scrollbar {
+  display: none;
+}

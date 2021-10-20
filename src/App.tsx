@@ -1,13 +1,12 @@
 import { useEffect } from "react";
-import "./App.css";
 import { useCommands } from "./FroggyDoro/customhooks/useCommands";
 import { useTimersInLocalStorage } from "./FroggyDoro/customhooks/useTimersInLocalStorage";
 import FroggyDoro from "./FroggyDoro/FroggyDoro";
 import { formatLS } from "./FroggyDoro/util/formatLS";
+import Header from "./Header/Header";
 
 function App() {
-
-  const { setDefaults } = useCommands();
+  const { setDefaults, resetBreak, resetWork } = useCommands();
   const { setLocalStorage } = useTimersInLocalStorage();
 
   useEffect(() => {
@@ -24,14 +23,18 @@ function App() {
           seconds: formatLS(localStorage.getItem("breakSeconds")),
         },
       };
-      setDefaults(initialPresetDefaults)
+      setDefaults(initialPresetDefaults);
+      resetWork(initialPresetDefaults.workTime);
+      resetBreak(initialPresetDefaults.breakTime);
     } else {
       setLocalStorage();
     }
+
   }, [setDefaults, setLocalStorage]);
 
   return (
     <div className="App">
+      <Header />
       <FroggyDoro />
     </div>
   );

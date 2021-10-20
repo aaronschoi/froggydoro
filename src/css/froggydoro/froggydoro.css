@@ -1,0 +1,11 @@
+@import './form/froggyform.css';
+@import './timer/froggytimer.css';
+@import './lilypad/lilypad.css';
+
+.froggydoro-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}

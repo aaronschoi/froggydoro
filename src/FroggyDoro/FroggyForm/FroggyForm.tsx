@@ -1,13 +1,13 @@
-import { useState, SyntheticEvent } from "react";
+import { MouseEventHandler, useState } from "react";
 import { ITimer } from "../reducers/timer";
 import FroggyFormInputs from "./FroggyFormComponent/FroggyFormInputs";
 import { formatLS } from "../util/formatLS";
 import { useTimersInLocalStorage } from "../customhooks/useTimersInLocalStorage";
 import { useAppSelector } from "../../app/hooks";
+import Lilypad from "../Lilypad/Lilypad";
 
 export default function FroggyForm() {
   const { setNewLocalStorage } = useTimersInLocalStorage();
-  const { timerDefaults } = useAppSelector(store => store)
 
   const [breakTime, setBreakTime] = useState<ITimer>({
     hours: formatLS(localStorage.getItem("breakHours")),
@@ -20,14 +20,14 @@ export default function FroggyForm() {
     seconds: formatLS(localStorage.getItem("workSeconds")),
   });
 
-  const submitHandler = (event: SyntheticEvent<HTMLFormElement>) => {
+  const submitHandler: MouseEventHandler = (event) => {
     event.preventDefault();
-    
+
     setNewLocalStorage(workTime, breakTime);
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form>
       <FroggyFormInputs
         data={workTime}
         setData={setWorkTime}
@@ -38,8 +38,9 @@ export default function FroggyForm() {
         setData={setBreakTime}
         type="Break Time"
       />
-      <button type="submit">Submit</button>
-      <button type="button" onClick={() => console.log( timerDefaults )}>log</button>
+      <div>
+        <Lilypad text="submit" clickEvent={submitHandler} />
+      </div>
     </form>
   );
 }
