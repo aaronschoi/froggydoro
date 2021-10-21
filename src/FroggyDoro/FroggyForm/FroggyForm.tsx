@@ -3,7 +3,6 @@ import { ITimer } from "../reducers/timer";
 import FroggyFormInputs from "./FroggyFormComponent/FroggyFormInputs";
 import { formatLS } from "../util/formatLS";
 import { useTimersInLocalStorage } from "../customhooks/useTimersInLocalStorage";
-import { useAppSelector } from "../../app/hooks";
 import Lilypad from "../Lilypad/Lilypad";
 
 export default function FroggyForm() {
@@ -27,7 +26,7 @@ export default function FroggyForm() {
   };
 
   return (
-    <form>
+    <form className="froggydoro-form-container">
       <FroggyFormInputs
         data={workTime}
         setData={setWorkTime}

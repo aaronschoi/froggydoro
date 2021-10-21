@@ -1,0 +1,9 @@
+@import "./incremental-input/incremental-input.css";
+
+.froggyform-inputs-container {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}

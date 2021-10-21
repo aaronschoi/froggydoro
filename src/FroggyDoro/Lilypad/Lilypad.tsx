@@ -1,4 +1,4 @@
-import { FormEventHandler, MouseEventHandler, SyntheticEvent } from "react";
+import { MouseEventHandler } from "react";
 
 interface IProps {
     text: string
