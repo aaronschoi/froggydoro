@@ -6,8 +6,8 @@ export const store = configureStore({
     workTime: workTimer,
     breakTime: breakTimer,
     timerDefaults: timerSet,
-    timerStatus: timerStatus,
-    userStatus: userStatus,
+    timerStatus,
+    userStatus,
     loop
   },
 });

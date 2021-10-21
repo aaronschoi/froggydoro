@@ -29,8 +29,9 @@ function App() {
     } else {
       setLocalStorage();
     }
+    console.log("yo")
 
-  }, [setDefaults, setLocalStorage]);
+  }, [setDefaults, setLocalStorage, resetWork, resetBreak]);
 
   return (
     <div className="App">

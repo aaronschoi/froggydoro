@@ -29,12 +29,15 @@ export const useCommands = () => {
     dispatch({ type: userActions.WORK });
   };
   const takeABreak = () => {
+    console.log("takeABreak")
     dispatch({ type: userActions.BREAK });
   };
   const resetWork = (workObj: ITimer) => {
+    console.log("resetWork")
     dispatch({ type: workActions.SET, payload: workObj });
   };
   const resetBreak = (breakObj: ITimer) => {
+    console.log("resetBreak")
     dispatch({ type: breakActions.SET, payload: breakObj });
   };
   const setDefaults = (defaultObj: ITimerSet) => {

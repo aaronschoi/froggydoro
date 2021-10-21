@@ -16,7 +16,8 @@ export const useTimer = (delay: number = 1000) => {
     if (userStatus === "WORK") {
       const { hours, minutes, seconds } = workTime;
       if (!hours && !minutes && !seconds) {
-        ribbit.play().then(() => resetWork(timerDefaults.workTime));
+        ribbit.play();
+        resetWork(timerDefaults.workTime)
         takeABreak();
         title("Break Time");
       }
@@ -24,33 +25,17 @@ export const useTimer = (delay: number = 1000) => {
       const { hours, minutes, seconds } = breakTime;
       if (!hours && !minutes && !seconds) {
         work();
-        ribbit.play().then(() => resetBreak(timerDefaults.breakTime));
         if (!loop) {
           pause();
           title("FroggyDoro");
         } else {
           title("Work Time");
         }
+        ribbit.play()
+        resetBreak(timerDefaults.breakTime)
       }
     }
-  }, [
-    timerStatus,
-    delay,
-    userStatus,
-    decBreak,
-    decWork,
-    breakTime,
-    loop,
-    pause,
-    resetBreak,
-    resetWork,
-    ribbit,
-    takeABreak,
-    timerDefaults,
-    title,
-    work,
-    workTime,
-  ]);
+  }, [breakTime, loop, pause, resetBreak, resetWork, ribbit, takeABreak, timerDefaults.breakTime, timerDefaults.workTime, title, userStatus, work, workTime]);
 
   useEffect(() => {
     const tick = () => {
