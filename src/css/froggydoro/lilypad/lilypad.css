@@ -9,6 +9,7 @@
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+    border-radius: 50%;
 }
 
 .lilypad-text {
@@ -16,14 +17,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: .75em;
+    font-size: 1.2rem;
 }
 
 .lilypad-container:hover {
     cursor: pointer;
+    text-shadow: 1px 1px 0px black;
 }
 
 .lilypad-img {
-    height: 3em;
-    width: 3em;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
 }

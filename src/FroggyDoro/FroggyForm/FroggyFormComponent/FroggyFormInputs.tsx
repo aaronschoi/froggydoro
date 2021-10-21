@@ -20,7 +20,7 @@ export default function FroggyFormInputs({ data, setData, type }: IProps) {
 
   return (
     <>
-      <h2>{type}</h2>
+      <h2 className="froggyform-inputs-header">{type}</h2>
       <div className="froggyform-inputs-container">
       <IncrementalInputs type="hours" value={hours} changeHandler={changeHandler} limit="23"/>
       {":"}

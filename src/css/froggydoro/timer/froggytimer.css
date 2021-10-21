@@ -1,4 +1,12 @@
-.froggydoro-buttonbox {
+.froggytimer-buttonbox {
   display: flex;
-  gap: 0.5em;
+  gap: 0.5rem;
+}
+
+.froggytimer-header {
+  font-size: 3rem;
+}
+
+.froggytimer-timer {
+  font-size: 4rem;
 }

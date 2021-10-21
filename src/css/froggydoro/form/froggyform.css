@@ -1,9 +1,24 @@
 @import "./incremental-input/incremental-input.css";
 
+.froggydoro-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
 .froggyform-inputs-container {
     display: flex;
-    gap: 1em;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
-    font-size: 2em;
+    font-size: 2rem;
+}
+
+.froggyform-inputs-header {
+    font-size: 3rem;
+}
+
+.froggydoro-form-btnbox {
+    display: flex;
+    justify-content: flex-end;
 }

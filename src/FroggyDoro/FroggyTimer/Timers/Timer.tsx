@@ -5,10 +5,5 @@ interface ITime {
 }
 
 export default function Timer({ time: { hours, minutes, seconds } }: ITime) {
-
-  return (
-    <div>
-      <div>{`${hours} : ${minutes} : ${seconds}`}</div>
-    </div>
-  );
+  return <div className="froggytimer-timer">{`${hours} : ${minutes} : ${seconds}`}</div>;
 }

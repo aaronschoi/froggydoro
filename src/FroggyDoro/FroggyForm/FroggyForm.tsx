@@ -37,7 +37,7 @@ export default function FroggyForm() {
         setData={setBreakTime}
         type="Break Time"
       />
-      <div>
+      <div className="froggydoro-form-btnbox">
         <Lilypad text="submit" clickEvent={submitHandler} />
       </div>
     </form>
