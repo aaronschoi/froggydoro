@@ -10,7 +10,7 @@ import Empty from "./Timers/Empty";
 import Work from "./Timers/Work";
 
 const oneSec = ({ hours, minutes, seconds }: ITimer) =>
-  !hours && !minutes && seconds > 0;
+  !hours && !minutes && seconds === 0;
 
 export default function FroggyTimer() {
   const { userStatus, timerStatus, loop, timerDefaults, workTime, breakTime } =
@@ -48,7 +48,7 @@ export default function FroggyTimer() {
     resetBreak(timerDefaults.breakTime);
   };
 
-  const status = userStatus === "WORK" ? oneSec(workTime) : oneSec(breakTime);
+  const status = userStatus === "WORK" ? !oneSec(workTime) : !oneSec(breakTime);
   const timer = status ? (
     <>
       <h2 className="froggytimer-header">{userState}</h2>

@@ -16,7 +16,7 @@ export default function IncrementalInputs ({ value , changeHandler, type, limit 
         min="0"
         max={limit}
         placeholder="0"
-        value={value? value : 0}
+        value={value}
         onChange={changeHandler}
       />
     )
